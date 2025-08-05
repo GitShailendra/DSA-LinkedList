@@ -1,5 +1,5 @@
-public class LinkedList{
-    public static class Node{
+public class LinkedListLast {
+    public class Node{
         int data;
         Node next;
         public Node(int data){
@@ -16,26 +16,40 @@ public class LinkedList{
             return;
         }
         newNode.next = head;
-        head = newNode;
+        head=newNode;
     }
-    public void print() {
+    public void addLast(int data){
+        Node newNode = new Node(data);
         if(head==null){
-            System.out.println("ll is empty");
+            head=tail=newNode;
+            return;
+        }
+        tail.next = newNode;
+        tail = newNode;
+    }
+    public void print(){
+        if(head==null){
+            System.out.println("LL is empty");
             return;
         }
         Node temp = head;
-        while(temp!=null){
+        while (temp!=null){
             System.out.print(temp.data+"->");
-            temp=temp.next;
+            temp = temp.next;
         }
         System.out.println("null");
     }
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
+        LinkedListLast ll = new LinkedListLast();
         ll.print();
         ll.addFirst(2);
         ll.print();
         ll.addFirst(1);
         ll.print();
+        ll.addLast(3);
+        ll.print();
+        ll.addLast(4);
+        ll.print(); 
+
     }
 }
